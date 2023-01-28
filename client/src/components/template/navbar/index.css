@@ -1,0 +1,20 @@
+.navbar_outer{
+    width: 100%;
+    height:20px;
+    background-color: yellow;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+
+}
+.navbar_inner{
+    width: 90%;
+    height:fit-content;
+    background-color: yellow;
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;  
+}
