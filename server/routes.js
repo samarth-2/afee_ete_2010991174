@@ -2,6 +2,10 @@ const express = require("express")
 const TEST = require("./models/Test")
 const USER=require("./models/user");
 const router = express.Router()
+const Logger=require('./connect/logg')
+const bcrypt = require('bcrypt');
+
+
 
 // Get all posts
 router.get("/test", async (req, res) => {
@@ -10,33 +14,40 @@ router.get("/test", async (req, res) => {
 	console.log(ele[0]._id)
 	res.send(ele)
 })
-
 router.post("/post/sign-up",async (req,res)=>{
+	Logger.Logg.info("-----------server/post/sign-up")
 	var email=req.body.email
 	var name=req.body.name
-	var pass=req.body.pass
+	
 	console.log(email);
+
+	const omega = bcrypt.genSaltSync(10);
+	const pass = bcrypt.hashSync(req.body.pass, omega);
 	try{
 		const ele=await USER.findOne({user_email:email}).exec()
 		console.log(ele);
 		if(ele!==null){
-			res.status(200).send("email already exists");
+			Logger.Logg.error("Existing user!!")
+			res.status(200).send({message:"alreadyExist",data:false});
 		}
 		else{
 			try{
 
-				// const ele= await USER.insertMany([{user_name:name,user_email:email,user_pass:pass}]);
+				
 				const li= await USER.insertMany([{user_name:name,user_email:email,user_pass:pass}]);
-				console.log(li);
-				res.status(200).send("account created successfully")
+				const ele1=await USER.findOne({user_email:email}).exec();
+				res.status(200).send({message:"createdSuccess",data:email})
+				Logger.Logg.success("User Created Success!!")
 			}
 			catch{
 				res.status(404).json({message:error.message});
+				Logger.Logg.error(error.message);
 			}
 		}
 	}
 	catch{
-
+		Logger.Logg.error(error.message);
+        res.status(404).json({message:error.message});
 	}
 })
 
@@ -44,22 +55,34 @@ router.post("/post/sign-up",async (req,res)=>{
 
 
 router.post("/post/sign-in", async (req, res) => {
+	Logger.Logg.info("-----------server/post/sign-in")
 	var email=req.body.email;
 	var pass=req.body.pass;
 	try 
 	{
-        const ele=await USER.findOne({user_email:email,user_password:pass}).exec();
+        const ele=await USER.findOne({user_email:email}).exec();
         if(ele!==null)
 		{
-			res.status(200).send("loginSuccess");
+			if (bcrypt.compareSync(pass,ele.user_pass))
+			{
+				res.status(200).send({message:"loginSuccess",data:email});
+				Logger.Logg.success("User LogIn Success!!")
+			}
+			else
+			{
+				Logger.Logg.error("User LogIn Failed!!")
+				res.status(200).send({message:"loginFailed",data:false});
+			}
 		}
 		else
 		{
-			res.status(200).send("loginFailed");
+			Logger.Logg.error("User LogIn Failed!!")
+			res.status(200).send({message:"loginFailed",data:false});
 		}
     }
 	catch (error) 
 	{
+        Logger.Logg.error(error.message)
         res.status(404).json({message:error.message});
     }
 })

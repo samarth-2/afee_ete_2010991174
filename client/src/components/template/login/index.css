@@ -1,8 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+/* @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800'); */
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+
+/* @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500&display=swap'); */
+
+
 
 * {
 	box-sizing: border-box;
+	 
 }
+
 
 /* body {
 	background: #f6f5f7;
@@ -38,6 +45,10 @@ p {
 	flex-direction: column;
 	align-items: center;
 	justify-content:flex-start;
+	background-image: url('./../../assets/image/back2.jpg');
+	/* font-family: 'EB Garamond', serif; */
+
+	font-family: 'Aboreto';
 }
 
 
