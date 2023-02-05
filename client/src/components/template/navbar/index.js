@@ -28,7 +28,7 @@ const Navbar = (props) => {
                     <div className='nav_util_icons'>favourites
                     <FontAwesomeIcon icon={faBookmark} size="l" color="black" className='nav__icon'/>
                     </div>
-                    <div>
+                    <div  onClick={()=>{navigate("/profile")}}>
                         profile
                         <FontAwesomeIcon icon={faUser} size="l" color="black" className='nav__icon'/>
                     </div>

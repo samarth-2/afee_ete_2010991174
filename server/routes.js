@@ -87,8 +87,69 @@ router.post("/post/sign-in", async (req, res) => {
     }
 })
 
+router.post("/profile/get-data",async (req,res)=>{
+	Logger.Logg.info("-----------server/profile/get-data")
+	var email=req.body.email;
+	try{
+			const ele= await USER.findOne({user_email:email}).exec()
+			if(ele!==null){
+				console.log(ele)
+				res.status(200).send({message:"found account",data:ele});
+				Logger.Logg.success("profileFetchSuccess")
+
+			}
+			else{
+				res.status(200).send({message:"no account found",data:{}});
+				Logger.Logg.success("profileFetchfailed")
+			}
+			
+
+	}
+	catch{
+		Logger.Logg.error(error.message)
+        res.status(404).json({message:error.message});
+	}
+})
 
 
+router.post("/profile/post-data", async (req, res) => {
+	Logger.Logg.info("-----------server/profile/post-data")
+	var email=req.body.email;
+	var age=req.body.age;
+	var address=req.body.address;
+	var contact=req.body.contact;
+	var sold=req.body.sold
+	var exp= req.body.exp
+	var atype=req.body.atype
+	var occu=req.body.occu;
+	var income=req.body.income;
+	var about=req.body.about;
+	try 
+	{
+		const check_email = { user_email: email };
+		const check_update= 
+		{ 
+			user_updated:true,
+			user_age:age,
+			user_acc_type:atype,
+			user_address:address,
+			user_contact:contact,
+			user_occu:occu,
+			user_income:income,
+			user_about:about,
+			user_sold_prop:sold,
+			user_exp:exp,
+		}
+        const ele=await USER.findOneAndUpdate(check_email,check_update);
+		Logger.Logg.success("Successfull Updation")
+		res.status(200).send({message:"Success"})
+    }
+	catch (error) 
+	{
+		Logger.Logg.error(error.message)
+        res.status(404).json({message:error.message});
+    }
+})
 
 
 

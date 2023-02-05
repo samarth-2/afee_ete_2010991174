@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+.profile_outer{
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: flex-start;
+    
+
+}
+.profile_inner{
+    margin-top: 1rem;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+.profile_left{
+    width:10%;
+    height: fit-content;
+ display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: flex-start;   
+    background-color:yellow;
+}
+
+
+
+.profile_right{
+    width: 70%;
+    height: fit-content;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: flex-start;   
+    background-color:lightblue ;
+}
+
+.profile_left_menu{
+    width: 90%;
+    border-radius: 10px;
+    height: fit-content;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: flex-start;   
+    background-color:lightblue ;
+}
+
+.profile_right_image{
+    width: 100%;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-bottom: 5rem;
+}
+.profile_right_image_pfp{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background:url('./../../assets/image/back1.jpg');
+}
+
+.profile_right_name{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.profile_right_fullname{
+    width: 40%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem 0rem;
+}
+.profile_right_fullname_title{
+    font-size: 22px;
+    font-weight:1000;
+}
+
+.profile_right_fullname_field{
+    /* margin-top: 10px; */
+    font-size: 18px;
+    font-weight:700;
+    width: 100%;
+}
+
+.profile_inputfield{
+    width: 80%;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+.profile_inputfield:focus {
+    border: 3px solid #555;
+  }
+
+  .profile_right_submit{
+    width:7rem;
+    border-radius: 10px;
+    background-color: orange;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

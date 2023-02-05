@@ -52,12 +52,14 @@ function signUpClicked()
       email:email,
       pass:pass
     }).then((res)=>{
-      if(res.data==="createdSuccess")
+      if(res.data.message==="createdSuccess")
       {
         alert("Account Created Successfully!!!")
+        console.log(res.data.data)
+        props.LoggedInStatusCheck(true,res.data.data)
         navigate("/profile")
       }
-      else if(res.data==="alreadyExist")
+      else if(res.data.message==="alreadyExist")
       {
         alert("Account Already Exists Please Login!!!")
       }
@@ -84,14 +86,16 @@ function signInClicked()
       email:loginemail,
       pass:loginpass
     }).then((res)=>{
-      if(res.data==="loginSuccess")
+      if(res.data.message==="loginSuccess")
       {
         alert("Login Successful!!!")
+        console.log(res.data.data)
+        props.LoggedInStatusCheck(true,res.data.data)
         navigate("/profile")
         document.getElementById("loginemail").value="";
         document.getElementById("loginpass").value="";
       }
-      else if(res.data==="loginFailed")
+      else if(res.data.message==="loginFailed")
       {
         alert("Email or Password Incorrect")
       }

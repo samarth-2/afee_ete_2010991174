@@ -18,7 +18,7 @@ let ele = new schema({
     user_pass:{
 		type:String
 	},
-    user_occupation:{
+    user_occu:{
 		type:String
 	},
     user_income:{
@@ -27,16 +27,19 @@ let ele = new schema({
     user_address:{
 		type:String
 	},
+	user_age:{
+		type:String
+	},
     user_acc_type:{
 		type:String
 	},
     user_updated:{
-		type:String
+		type:Boolean
 	},
     user_about:{
 		type:String
 	},
-    user_rating:{
+    user_exp:{
 		type:String
 	},
     user_sold_prop:{
