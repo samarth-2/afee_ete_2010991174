@@ -8,13 +8,8 @@ let ele = new schema({
 	rating:{
 		type:String
 	},
-    location:{
-		type:String
-	},
-    city:{
-		type:String
-	},
-    state:{
+    
+    prop_type:{
 		type:String
 	},
     furn_status:{
@@ -29,11 +24,9 @@ let ele = new schema({
     bhk:{
 		type:String
 	},
-    verified:{
-		type:String
-	},
+    
     dealer:{
-        type:[Object]
+        type:String
     }
     ,
     desc:{
@@ -44,6 +37,9 @@ let ele = new schema({
     }
     ,
     purchase_status:{
+        type:String
+    },
+    image:{
         type:String
     }
 

@@ -9,7 +9,7 @@ const Login = (props) => {
     const [name,setName]=useState("");
     const [email,setEmail]=useState("");
     const [pass,setPass]=useState("");
-
+    const [atype,setAtype]=useState("");
     const [loginemail,setLoginemail]=useState("")
     const [loginpass,setLoginpass]=useState("")
     
@@ -41,16 +41,22 @@ function signUpClicked()
         alert("Email is incorrect");
         return;
     }
-    else if(pass==="")
+    if(pass==="")
     {
       alert("fill pass correctly!!")
+      return;
+    }
+    if(atype==="")
+    {
+      alert("fill account type correctly!!")
       return;
     }
     Axios.post('http://localhost:5000/api/post/sign-up',
     {
       name:name,
       email:email,
-      pass:pass
+      pass:pass,
+      atype:atype
     }).then((res)=>{
       if(res.data.message==="createdSuccess")
       {
@@ -117,6 +123,21 @@ function signInClicked()
                     <input className='login_field' onChange={(e)=>{setName(e.target.value)}} type="text" placeholder="Name" id="nameSignup"/>
                     <input className='login_field' onChange={(e)=>{setEmail(e.target.value)}} type="email" placeholder="Email" id="emailSignup" />
                     <input className='login_field' onChange={(e)=>{setPass(e.target.value)}} type="password" placeholder="Password" id="passSignup" />
+                    <div className='login_radio'>
+                      <div className='login_radio_inner'>
+                        <label>
+                        dealer
+                        </label>
+                        <input value="dealer" type="radio" name='atype' onChange={(e)=>{setAtype(e.target.value)}}/>
+                      </div>
+                      <div className='login_radio_inner'>
+                        <label>
+                        buyer
+                        </label>
+                        <input value="buyer" type="radio" name='atype' onChange={(e)=>{setAtype(e.target.value)}}/>
+                      </div>
+                    </div>
+
                     <button className='login_button' type='button' onClick={()=>signUpClicked()}>Sign Up</button>
                 </form>
             </div>

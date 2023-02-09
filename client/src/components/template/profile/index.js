@@ -6,6 +6,7 @@ import Axios from 'axios';
 import LoadingScreen from './../../atom/loadingScreen';
 
 const Profile =(props)=>{
+    
 const navigate=useNavigate();
 
     console.log(props.LoggedIn);
@@ -14,19 +15,21 @@ const navigate=useNavigate();
         before:"none",
         after:"flex"
     })
+    const[flag2,setFlag2]=useState("none");
+
     const[address,setAddress]=useState("");
     const[contact,setContact]=useState("");
     const[income,setIncome]=useState("");
     const[occu,setOccu]=useState("");
     const[age,setAge]=useState(0);
-    const[atype,setAtype]=useState("");
+    
     const[about,setAbout]=useState("");
     const[exp,setExp]=useState("");
     const[sold,setSold]=useState("");
     // const[gender,setGender]=useState("");
     const [userData, setUserdata] = useState({})
     const [userLoading, setUserLoading] = useState(true);
-
+    
 
 
     function GetProfile()
@@ -36,10 +39,15 @@ const navigate=useNavigate();
         {
             email: props.LoggedIn,
         }).then((res) => {
+            console.log(res.data.data)
             setUserdata(res.data.data)
             console.log(userData)
             if (res.data.data.user_updated === true) {
                 setFlag({ before: "flex" ,after: "none"});
+            }
+            if(res.data.data.user_acc_type==="dealer"){
+                setFlag2("flex");
+                console.log("nigggaaaaaaa")
             }
             setUserLoading(false)
         });
@@ -93,12 +101,8 @@ const navigate=useNavigate();
             alert("Fill Address Correctly!!")
             return;
         }
-        if(atype===""){
-            alert("Fill account type Correctly!!")
-            return;
-        }
-
-        if(atype==="dealer"){
+        
+        if(userData.user_acc_type==="dealer"){
             if(about===""){
             alert("Fill About Correctly!!")
             return;
@@ -129,7 +133,7 @@ const navigate=useNavigate();
            sold:sold,
            exp:exp,
             age:age,
-            atype:atype
+            
             
 
         }).then((res)=>{
@@ -146,7 +150,7 @@ const navigate=useNavigate();
 
 
 
-
+    
 
 
 
@@ -157,7 +161,7 @@ const navigate=useNavigate();
             <Navbar LoggedIn={props.LoggedIn} LoggedInStatus={props.LoggedInStatus}/>
 
             {
-                    // props.LoggedInStatus ? (
+                   
                     userLoading ? (
                         <div className='loading__outer' style={{ width: "100%", height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
                             <div className='loading__outer__inner'>
@@ -169,14 +173,14 @@ const navigate=useNavigate();
             <div className='profile_inner'>
                 <div className='profile_left'>
                     <div className='profile_left_menu'>
-                        <div>
+                        <div  onClick={()=>{navigate("/profile")}}>
                             profile
                         </div>
                         <div>
-                            <div>
+                            <div style={{display:flag2}} onClick={()=>{navigate("/postproperty")}}>
                                 post
                             </div>
-                            <div>
+                            <div  onClick={()=>{navigate("/home")}}>
                                 fav
                             </div>
                         </div>
@@ -293,16 +297,14 @@ const navigate=useNavigate();
                                     <div style={{ display: flag.before }}>
                                     {userData.user_acc_type}
                                     </div>
-                                    <div style={{ display: flag.after }}>
-                                        <input onChange={(e)=>{setAtype(e.target.value)}} type="text" className='profile_inputfield' placeholder='Enter your address'/>
-                                    </div>
+                                    
                                 </div>
                                 
                             </div>
                             
 
                     </div>
-                    <div className='profile_right_name'>
+                    <div style={{display:flag2}}  className='profile_right_name'>
                             <div className='profile_right_fullname'>
                                 <div className='profile_right_fullname_title' >
                                     ABOUT
@@ -334,7 +336,7 @@ const navigate=useNavigate();
                             
 
                     </div>
-                    <div className='profile_right_name'>
+                    <div style={{display:flag2}} className='profile_right_name'>
                             <div className='profile_right_fullname'>
                                 <div className='profile_right_fullname_title' >
                                     PROPERTIES SOLD
@@ -349,20 +351,7 @@ const navigate=useNavigate();
                                 </div>
                                 
                             </div>
-                            {/* <div className='profile_right_fullname'>
-                                <div className='profile_right_fullname_title' >
-                                    GENDER
-                                </div>
-                                <div className='profile_right_fullname_field'>
-                                    <div style={{ display: flag.before }}>
-                                        Male
-                                    </div>
-                                    <div style={{ display: flag.after }}>
-                                        <input onChange={(e)=>{setGender(e.target.value)}} className='profile_inputfield' type="text" />
-                                    </div>
-                                </div>
-                                
-                            </div> */}
+                            
                            
                             
 

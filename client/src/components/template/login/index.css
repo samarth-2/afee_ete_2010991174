@@ -275,3 +275,20 @@ footer a {
     color: #3c97bf;
     text-decoration: none;
 } */
+
+
+.login_radio{
+	width:100%;
+	height: fit-content;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	margin: 1rem 0rem;
+}
+.login_radio_inner{
+	width:50%;
+	height: fit-content;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
