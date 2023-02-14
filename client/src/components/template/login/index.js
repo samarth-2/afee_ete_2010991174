@@ -112,9 +112,11 @@ function signInClicked()
   
 
     return (
-        
+      <>
+
+      <Navbar/>
       <div className='login_outer'>
-        <Navbar/>
+        
         <div className="login_container" id="container">
             <div className="form-container sign-up-container">
                 <form className='login_form' action="#">
@@ -167,7 +169,7 @@ function signInClicked()
             </div>
         </div>
       </div>
-
+      </>
 
     );
 }

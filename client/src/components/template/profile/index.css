@@ -4,30 +4,37 @@
     height: fit-content;
     width: 100%;
     display: flex;
-    flex-direction:column;
+    /* flex-direction:column; */
     align-items: center;
-    justify-content: flex-start;
-    
+    justify-content: center;
+   background-image: url("./../../assets/image/back3.jpg");
+   background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
 
 }
 .profile_inner{
-    margin-top: 1rem;
+    margin-top: 6rem;
     height: fit-content;
     width: 100%;
     display: flex;
     align-items: flex-start;
     justify-content: space-evenly;
     font-family: 'Titillium Web', sans-serif;
+    margin-bottom: 6rem;
+
 }
 
 .profile_left{
-    width:10%;
+    width:18%;
     height: fit-content;
  display: flex;
     flex-direction:column;
     align-items: center;
     justify-content: flex-start;   
-    background-color:yellow;
+    
 }
 
 
@@ -39,18 +46,22 @@
     flex-direction:column;
     align-items: center;
     justify-content: flex-start;   
-    background-color:lightblue ;
+    background: rgba(255, 255, 255, 0.591);
+    border-radius: 10px;
 }
 
 .profile_left_menu{
     width: 90%;
     border-radius: 10px;
-    height: fit-content;
+    height: 30vh;
     display: flex;
     flex-direction:column;
     align-items: center;
-    justify-content: flex-start;   
-    background-color:lightblue ;
+    justify-content:space-evenly;   
+    background: rgba(255, 255, 255, 0.591);
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: 700;
 }
 
 .profile_right_image{
@@ -59,13 +70,14 @@
     align-items: center;
     justify-content: center;
     display: flex;
-    margin-bottom: 5rem;
+   
+    padding: 3rem;
 }
-.profile_right_image_pfp{
+.profile_userimagepfp{
     height: 200px;
     width: 200px;
     border-radius: 50%;
-    background:url('./../../assets/image/back1.jpg');
+
 }
 
 .profile_right_name{
@@ -74,7 +86,8 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-
+    margin-bottom: 1rem;
+    /* background-color:yellow ; */
 }
 
 .profile_right_fullname{
@@ -82,24 +95,26 @@
     height: fit-content;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 1rem 0rem;
+    align-items: center;
+    justify-content: flex-start;
+    /* padding: 1rem 0rem; */
+    /* background-color:blue ; */
 }
 .profile_right_fullname_title{
     font-size: 22px;
     font-weight:1000;
+    /* background-color:pink ; */
 }
 
 .profile_right_fullname_field{
     /* margin-top: 10px; */
     font-size: 18px;
     font-weight:700;
-    width: 100%;
+    /* width: 100%; */
 }
 
 .profile_inputfield{
-    width: 80%;
+    width: 100%;
   padding: 12px 20px;
   box-sizing: border-box;
   border: 3px solid #ccc;
@@ -112,11 +127,14 @@
   }
 
   .profile_right_submit{
-    width:7rem;
+    width:15rem;
     border-radius: 10px;
     background-color: orange;
+    font-weight: 600;
+    font-size: 20px;
     padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
   }

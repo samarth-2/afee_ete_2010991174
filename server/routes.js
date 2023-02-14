@@ -209,5 +209,103 @@ router.post("/postproperty/insert-data", async (req, res) => {
 })
 
 
+router.post("/search/get-data", async (req, res) => {
+	Logger.Logg.info("-----------server/profile/get-data")
+	
+	try {
+		const ele = await PROPERTY.find().exec()
+		if (ele !== null) {
+			console.log(ele)
+			res.status(200).send({ message: "found account", data: ele });
+			Logger.Logg.success("profileFetchSuccess")
+
+		}
+		else {
+			res.status(200).send({ message: "no account found", data: [] });
+			Logger.Logg.success("profileFetchfailed")
+		}
+
+
+	}
+	catch {
+		Logger.Logg.error(error.message)
+		res.status(404).json({ message: error.message });
+	}
+})
+
+
+router.post("/listings/get-data", async (req, res) => {
+	Logger.Logg.info("-----------server/listings/get-data")
+	var email=req.body.email;
+	try {
+		const ele = await PROPERTY.find({ dealer: email }).exec();
+		if (ele !== null) {
+			console.log(ele)
+			res.status(200).send({ message: "found account", data: ele });
+			Logger.Logg.success("profileFetchSuccess")
+			
+		}
+		else {
+			res.status(200).send({ message: "no account found", data: [] });
+			Logger.Logg.success("profileFetchfailed")
+		}
+
+
+	}
+	catch {
+		Logger.Logg.error(error.message)
+		res.status(404).json({ message: error.message });
+	}
+})
+
+
+
+router.post("/favourites/get-data", async (req, res) => {
+	Logger.Logg.info("-----------server/favourites/get-data")
+	var email=req.body.email;
+	try {
+		const ele = await PROPERTY.find().exec();
+		if (ele !== null) {
+			console.log(ele)
+			res.status(200).send({ message: "found account", data: ele });
+			Logger.Logg.success("profileFetchSuccess")
+			
+		}
+		else {
+			res.status(200).send({ message: "no account found", data: [] });
+			Logger.Logg.success("profileFetchfailed")
+		}
+
+
+	}
+	catch {
+		Logger.Logg.error(error.message)
+		res.status(404).json({ message: error.message });
+	}
+})
+
+router.post("/admin/get-data", async (req, res) => {
+	Logger.Logg.info("-----------server/favourites/get-data")
+	var email=req.body.email;
+	try {
+		const ele = await USER.find().exec();
+		if (ele !== null) {
+			console.log(ele)
+			res.status(200).send({ message: "found account", data: ele });
+			Logger.Logg.success("profileFetchSuccess")
+			
+		}
+		else {
+			res.status(200).send({ message: "no account found", data: [] });
+			Logger.Logg.success("profileFetchfailed")
+		}
+
+
+	}
+	catch {
+		Logger.Logg.error(error.message)
+		res.status(404).json({ message: error.message });
+	}
+})
 
 module.exports = router

@@ -3,15 +3,24 @@
     width: 100%;
     height:fit-content;
     background:none;
-    
+   
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    /* margin-bottom: 2rem; */
+    margin-bottom: 2rem;
     font-family: 'Aboreto';
     font-size: 20px;
     font-weight: 600;
+    /* position:fixed; */
+    position: fixed;
+    z-index: 10;
     
+}
+
+.navback{
+    /* background-color: rgba(238, 231, 231, 0.749); */
+    background-color: white;
+    transition: 1s;
 }
 .navbar_inner{
     width: 95%;

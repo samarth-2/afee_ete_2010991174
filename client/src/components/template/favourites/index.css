@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+
+
+.listing_outer{
+    height: fit-content;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-image: url("./../../assets/image/back13.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.listing_inner{
+    margin-top: 5rem;
+    height:100vh;
+    width: 70%;
+    border-radius: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: rgba(236, 230, 230, 0.67);
+    margin-bottom: 3rem;
+  
+}
+
+.listings_heading{
+    padding: 1rem;
+    width: 100%;
+    height: fit-content;
+    font-size: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-family: 'Aboreto';
+}
+
+.listing_list{
+    overflow-y: scroll;
+
+}

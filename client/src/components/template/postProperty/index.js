@@ -102,7 +102,7 @@ const Postprop = (props) => {
 
     return (
         <div className='pp_outer'>
-            <Navbar />
+            <Navbar LoggedIn={props.LoggedIn} LoggedInStatus={props.LoggedInStatus} />
             <div className='pp_inner'>
                 <div className='pp_inner_outer'>
                     <div className='pp_inner_title'>
