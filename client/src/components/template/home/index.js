@@ -14,6 +14,11 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Slider from '@mui/material/Slider';
 import Checkbox from '@mui/material/Checkbox';
+import Footer from './../footer';
+
+// Images
+import sectiontwoBG from "./../../assets/image/ads2.png"
+import sectiontwoFG from "./../../assets/image/back1.jpg"
 // import ExpertDisplay from './../expertDisplay';
 const Home = (props) => {
 
@@ -105,6 +110,10 @@ const Home = (props) => {
     }
 
     function searchClicked() {
+        if(props.LoggedInStatus==false){
+            navigate('/login');
+            return;
+        }
         if (props.val === "" || props.valField === "") {
             console.log("error");
         }
@@ -294,6 +303,17 @@ const Home = (props) => {
                 </div>
                 {/* <ExpertDisplay/> */}
 
+            </div>
+
+            <div className='home__sectionTwo'>
+                <img src = {sectiontwoBG} style={{width:"1500px"}}></img>
+                {/* <div className='foreground'>
+                    <img src = {sectiontwoBG}></img>
+                </div> */}
+            </div>
+
+            <div className='home__footer'>
+                <Footer/>
             </div>
         </div>
 

@@ -62,7 +62,7 @@ p {
 .login_button {
 	border-radius: 20px;
 	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
+	background: linear-gradient(90deg, hsla(259, 84%, 78%, 1) 0%, hsla(206, 67%, 75%, 1) 100%);
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -83,7 +83,7 @@ p {
 .login_button_ghost {
 	border-radius: 20px;
 	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
+	background: linear-gradient(90deg, hsla(259, 84%, 78%, 1) 0%, hsla(206, 67%, 75%, 1) 100%);
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -185,9 +185,12 @@ p {
 }
 
 .overlay {
-	background: #FF416C;
+	/* background: #FF416C;
 	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: linear-gradient(to right, #FF4B2B, #FF416C); */
+
+background: linear-gradient(90deg, hsla(259, 84%, 78%, 1) 0%, hsla(206, 67%, 75%, 1) 100%);
+
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;

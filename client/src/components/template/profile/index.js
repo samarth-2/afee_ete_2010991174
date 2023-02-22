@@ -172,6 +172,9 @@ const Profile = (props) => {
                                     <div  style={{ display: flag2, cursor:'pointer' }} onClick={() => { navigate("/postproperty") }}>
                                         POST PROPERTY
                                     </div>
+                                    <div  style={{ display: flag2, cursor:'pointer' }} onClick={() => { navigate("/listings") }}>
+                                        YOUR LISTINGS
+                                    </div>
                                     <div style={{cursor:'pointer'}} onClick={() => { navigate("/favourites") }}>
                                         NEW LISTINGS
                                     </div>
